@@ -6,19 +6,53 @@
     <script src="http://d3js.org/d3.v3.min.js"></script>
   </head>
   <body>
-    <h1>Hola grafica 1</h1>
-    <p>
-      aki va la graf
-    </p>
+
     <div id="test1"></div>
     <script type="text/javascript">
+
+      var dataArr = [10, 20, 30, 40, 50, 80];
+
+      var width = 500,
+          height = 500;
+
+      var widthScale = d3.scale.linear()
+                                .domain([0,80])
+                                .range([0,width])
+                                ;// escalamiento de los datos
+
+      var colorRAnge = d3.scale.linear()
+                                .domain([0,80])
+                                .range(["green", "red"])
+                                ;
+                                // rango de colores
+
+      var axis = d3.svg.axis()
+                        .ticks(5)
+                        .scale(widthScale);
+
       var leGraf = d3.select('#test1')
                       .append('svg')
-                      .attr('height',500)
-                      .attr('width',500)
+                      .attr('height',width)
+                      .attr('width',height)
+                      .append('g') // append grouṕ
+                      .attr('transform', 'translate(15, 20)')// mueve la cosa en (x, y)
+                      //.call(axis)
                       ;
 
+      var barras = leGraf.selectAll("rect")
+                         .data(dataArr)
+                         .enter()
+                          .append("rect")
+                          .attr('width', function(d){ return widthScale(d); })
+                          .attr('height',50)
+                          .attr('fill', function(d){return colorRAnge(d);}) // aplicando el escalamiento
+                          .attr('y', function(d, i){ return i*60; })
+                         ;
 
+    leGraf.append('g')
+          .attr('transform', 'translate(0,380)')
+          .call(axis)
+          ;
     </script>
   </body>
 </html>
