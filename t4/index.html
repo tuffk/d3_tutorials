@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>tutorial 1</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+  </head>
+  <body>
+
+    <div id="test1"></div>
+    <script type="text/javascript">
+
+      var width = 500,
+          height = 500;
+
+      var leGraf = d3.select('#test1')
+                      .append('svg')
+                      .attr('height',width)
+                      .attr('width',height)
+                      ;
+
+      var circulamela = leGraf.append('circle')
+                              .attr('cx', 50)
+                              .attr('cy', 50)
+                              .attr('r', 25)
+                              ;
+      // circulamela.transition()
+      //             .duration(3000)
+      //             .delay(1000)
+      //             .attr('cx', 150)
+      //             .transition()
+      //             .attr('cy', 200)
+      //             ;
+      circulamela.transition()
+                  .duration(3000)
+                  .attr('cx', 150)
+                  .each('end', function(){d3.select(this).attr('fill','red')})
+                  ;
+    </script>
+  </body>
+</html>
