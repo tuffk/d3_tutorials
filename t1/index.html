@@ -18,22 +18,23 @@
       //     .text('hola')
       //   ;
       var leGraf = d3.select('#test1')
-        .append('svg')
-        .attr('height',500)
-        .attr('width',500)
-      ;
+                      .append('svg')
+                      .attr('height',500)
+                      .attr('width',500)
+                      ;
+
       var cirulamenla = leGraf.append('circle')
-                          .attr('cx', 250)
-                          .attr('cy', 250)
-                          .attr('r', 50)
-                          .attr('fill', 'green')
-                          ;
+                              .attr('cx', 250)
+                              .attr('cy', 250)
+                              .attr('r', 50)
+                              .attr('fill', 'green')
+                              ;
 
       var estrangulamenla = leGraf.append('rect')
-                          .attr('height',100)
-                          .attr('width',200)
-                          .attr('fill', 'red')
-                          ;
+                                  .attr('height',100)
+                                  .attr('width',200)
+                                  .attr('fill', 'red')
+                                  ;
 
       var alineamela = leGraf.append('line')
                               .attr('x1', 0)
@@ -43,9 +44,6 @@
                               .attr('stroke', 'blue')
                               .attr('stroke-width', 10)
                               ;
-    
-
-
     </script>
   </body>
 </html>
