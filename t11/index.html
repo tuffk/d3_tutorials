@@ -9,37 +9,69 @@
 </head>
 
 <body>
-  <p>
+  <!-- <p>
     pais
   </p>
   <img src="israel.svg" />
   <p>
     bandera
   </p>
-  <img src="israelBandera.svg"  />
-  <div id="test1">
-    <svg>
+  <img src="israelBandera.svg"  /> -->
+  <!-- <svg  xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink">
+
       <defs>
-        <pattern id="pattern1"
-        x="10" y="10" width="20" height="20"
-        patternUnits="userSpaceOnUse" >
 
-        <circle cx="10" cy="10" r="10" style="stroke: none; fill: #999999" />
-      </pattern>
+          <pattern id="pat1"
+                 x="12" y="12" width="25" height="25"
+                 patternUnits="userSpaceOnUse"
+                >
 
-      <mask id="mask5" x="0" y="0" width="200" height="100" >
-        <rect x="0" y="0"  width="200" height="100"
-        style="stroke:none; fill: url(#pattern1)"/>
-      </mask>
-    </defs>
+              <img src="israel.svg" style="height: 200px; width: 200px; Display: none;">
 
-    <text x="10" y="55" style="stroke: none; fill: #000000;">
-      This text is under the rectangle
-    </text>
-    <rect x="1" y="1" width="200" height="100"
-    style="stroke: none; fill: #0000ff; mask: url(#mask5)"/>
-  </svg>
-</div>
+          </pattern>
+
+          <pattern id="pat2"
+                 x="12" y="12" width="25" height="25"
+                 patternUnits="userSpaceOnUse"
+                >
+
+              <img src="israelBandera.svg" style="height: 200px; width: 200px; Display: none;">
+
+          </pattern>
+
+          <pattern id="pat3"
+                 x="12" y="12" width="25" height="25"
+                 patternUnits="userSpaceOnUse"
+                >
+
+              <img src="Israel_Flag_map.svg" style="height: 200px; width: 200px; Display: none;">
+
+          </pattern>
+
+      </defs>
+
+    </svg> -->
+  <div id="test1"></div>
+    <script type="text/javascript">
+      var leGraf = d3.select("#test1")
+                      .attr("height", 1500)
+                      .attr("width", 1500)
+                      ;
+      var mapa = leGraf.append("img").attr("src","israel.svg")
+              .attr("height", 150)
+              .attr("width", 150);
+//     var mapa =  d3.xml("israel.svg").mimeType("image/svg+xml").get(function(error, xml) {
+//    if (error) throw error;
+//    d3.select("#test1").node().appendChild(xml.documentElement);
+// });
+    mapa.transition()
+        .duration(3000)
+        .attr("cx", 500)
+        ;
+
+    </script>
+
 </body>
 
 </html>
