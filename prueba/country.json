@@ -1,0 +1,22 @@
+[
+  {
+    "value": 50,
+    "name": "Mexico",
+    "id": "mx"
+  },
+  {
+    "value": 20,
+    "name": "USA",
+    "id": "us"
+  },
+  {
+    "value": 40,
+    "name": "China",
+    "id": "cn"
+  },
+  {
+    "value": 30,
+    "name": "Israel",
+    "id": "il"
+  }
+]
