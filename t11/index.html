@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>tutorial 1</title>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+
+</head>
+
+<body>
+
+  <div id="test1">
+    <svg>
+      <defs>
+        <pattern id="pattern1"
+        x="10" y="10" width="20" height="20"
+        patternUnits="userSpaceOnUse" >
+
+        <circle cx="10" cy="10" r="10" style="stroke: none; fill: #999999" />
+      </pattern>
+
+      <mask id="mask5" x="0" y="0" width="200" height="100" >
+        <rect x="0" y="0"  width="200" height="100"
+        style="stroke:none; fill: url(#pattern1)"/>
+      </mask>
+    </defs>
+
+    <text x="10" y="55" style="stroke: none; fill: #000000;">
+      This text is under the rectangle
+    </text>
+    <rect x="1" y="1" width="200" height="100"
+    style="stroke: none; fill: #0000ff; mask: url(#mask5)"/>
+  </svg>
+</div>
+</body>
+
+</html>
