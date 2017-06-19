@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>tutorial 1</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+  </head>
+  <body>
+
+    <div id="test1"></div>
+    <script type="text/javascript">
+
+      var width = 500,
+          height = 500;
+
+      var data = [
+
+        {x: 0, y:0},
+        {x: 110, y: 60},
+        {x: 400, y:100}
+
+      ];
+
+      var leGraf = d3.select('#test1')
+                      .append('svg')
+                      .attr('height',height)
+                      .attr('width',width)
+                      ;
+
+      var group = leGraf.append("g")
+                        .attr("transform", "translate(100,100)")
+                        ;
+
+      var line = d3.svg.line()
+                    .x(function (d) { return d.x; })
+                    .y(function (d) { return d.y; })
+                    ;
+
+      group.selectAll("path")
+            .data([data])
+            .enter()
+            .append("path")
+            .attr("d", line)
+            .attr("fill", "none")
+            .attr("stroke", "#000")
+            .attr("stroke-width", 10)
+            ;
+
+    </script>
+  </body>
+</html>
