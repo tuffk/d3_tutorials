@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>tutorial 1</title>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="jquery.min.js"></script>
+  <style type="text/css">
+
+    .imagen {
+
+      width: 35em;
+      height: 35em;
+      margin: 0px;
+
+    }
+
+    #map {
+
+      float: left;
+      position: absolute;
+      z-index: 3;
+
+    }
+
+    #flag {
+
+      float: right;
+      position: relative;
+      z-index: 2;
+
+    }
+
+    #fmap {
+
+      display: none;
+      margin-left: 30%;
+      position: absolute;
+      z-index: 1;
+
+    }
+
+    #main-canvas {
+
+      width: 100%;
+      height: 50%;
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div id="main-canvas">
+    <img src="israel.svg" id="map" class="imagen"/>
+    <img src="israelBandera.svg" id="flag" class="imagen"/>
+    <img src="fmap.svg" id="fmap" class="imagen"/>
+  </div>
+
+  <script type="text/javascript">
+  $("#map").animate({
+      marginLeft:"30%",
+      marginTop:"0px",
+      },2000).fadeOut(2000);
+  $("#flag").animate({
+      marginRight:"40%",
+      marginTop:"0px",
+    },2000).fadeOut(2000);
+    $("#fmap").delay(3000).fadeIn(2000);
+  </script>
+
+</body>
+
+</html>
