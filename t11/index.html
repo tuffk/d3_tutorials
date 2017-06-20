@@ -13,21 +13,15 @@
 
 <body>
 
-  <img src="israel.svg" id="map" />
+  <img src="israel.svg" id="map" style="width: 400px; height: 400px; margin: 0px; display: float;" />
 
-  <img src="israelBandera.svg" id="flag" />
+  <img src="israelBandera.svg" id="flag" style="width: 400px; height: 400px; margin: 0px; display: float;"/>
   <img src="fmap.svg" id="fmap" />
   <script type="text/javascript">
   $("#map").animate({
-      width:"400px",
-      height:"400px",
-      marginLeft:"100px",
+      marginLeft:"300px",
       marginTop:"100px",
-      },2000, function(){
-
-        $(this).css("background-color", "red");
-
-      });
+      },2000);
   </script>
 
 </body>
