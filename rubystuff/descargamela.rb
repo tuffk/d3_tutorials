@@ -33,23 +33,6 @@ files.each do |f|
     end
   end
 end
-# vagina = {}
-# files.each do |f|
-#   File.open(f, 'r') do |doc|
-#     country = File.basename(doc)
-#     vagina[country] = {}
-#     doc.each_line do |l|
-#       if l.include? '<path'
-#         pito = l.split(' ')
-#         title = pito[2].tr('=', ':')
-#         title.insert(0, '"')
-#         title.insert(6, '"')
-#         vagina[country]['name'] = title
-#         vagina[country]['path'] = l
-#       else
-#         next
-#       end
-#     end
-#   end
-# end
+
 json << vagina.to_json
+json.close
