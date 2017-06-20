@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>tutorial 1</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+
+    <style media="screen">
+
+    #map {
+      display: block;
+      text-indent: -9999px;
+      width: 1024px;
+      height: 1024px;
+      background: url(il.svg);
+      background-size: 1024px 1024px;
+    }
+
+    </style>
+
+  </head>
+  <body>
+
+    <div id="test1"></div>
+
+    <svg  xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink">
+
+      <defs>
+        <pattern id="il" height="100%" width="100%"
+        patternContentUnits="objectBoundingBox">
+
+        <image height="1" width="1" preserveAspectRatio="none"
+          xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="il.svg"
+        ></image>
+
+        </pattern>
+
+        <pattern id="mx" height="100%" width="100%"
+        patternContentUnits="objectBoundingBox">
+
+        <image height="1" width="1" preserveAspectRatio="none"
+          xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="mx.svg"
+        ></image>
+
+        </pattern>
+
+        <pattern id="us" height="100%" width="100%"
+        patternContentUnits="objectBoundingBox">
+
+        <image height="1" width="1" preserveAspectRatio="none"
+          xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="us.svg"
+        ></image>
+
+        </pattern>
+
+        <pattern id="cn" height="100%" width="100%"
+        patternContentUnits="objectBoundingBox">
+
+        <image height="1" width="1" preserveAspectRatio="none"
+          xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="cn.svg"
+        ></image>
+
+        </pattern>
+
+      </defs>
+
+    </svg>
+
+    <div id="test2"></div>
+
+    <script type="text/javascript">
+
+      var r = 25;
+
+      d3.json("country.json", function (data) {
+
+        var svgContainer = d3.select("#test2").append("svg")
+                                    .attr("width", 500)
+                                    .attr("height", 500);
+
+        var circles = svgContainer.selectAll("circle")
+                                  .data(data)
+                                  .enter()
+                                  .append("circle")
+                                  ;
+
+        var circleAttributes = circles
+                               .attr("cx", function(d) { return d.cx; })
+                               .attr("cy", function(d) { return d.cy; })
+                               .attr("r", r)
+                               .style("fill", function(d) { return "url(#" + d.id + ")"; })
+                               ;
+
+      });
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+[
+  {
+    "value": 50,
+    "name": "Mexico",
+    "id": "mx",
+    "circle": "cmx",
+    "cx":25,
+    "cy": 100
+  },
+  {
+    "value": 20,
+    "name": "USA",
+    "id": "us",
+    "circle": "cus",
+    "cx":100,
+    "cy": 100
+  },
+  {
+    "value": 40,
+    "name": "China",
+    "id": "cn",
+    "circle": "ccn",
+    "cx":175,
+    "cy": 100
+  },
+  {
+    "value": 30,
+    "name": "Israel",
+    "id": "il",
+    "circle": "cil",
+    "cx":250,
+    "cy": 100
+  }
+]
