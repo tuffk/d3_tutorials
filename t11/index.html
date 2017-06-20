@@ -7,21 +7,58 @@
   <script src="http://d3js.org/d3.v3.min.js"></script>
   <script src="jquery.min.js"></script>
 <style type="text/css">
-
+  .wrapper
+  {
+    overflow: hidden;
+    width: 100%;
+  }
+  img
+  {
+    width: 400px;
+    height: 400px;
+    margin: 0px;
+  }
+  #map
+  {
+    z-index: 100;
+    position: absolute;
+  }
+  #flag
+  {
+    position: relative;
+    z-index: 10;
+    float: right;
+    clear: both;
+  }
+  #fmap
+  {
+    margin-left: 35%;
+  }
 </style>
 </head>
 
 <body>
+  <div style="overflow: hidden;" class="wrapper">
+    <img src="israel.svg" id="map" />
 
-  <img src="israel.svg" id="map" style="width: 400px; height: 400px; margin: 0px; display: float;" />
+    <img src="israelBandera.svg" id="flag" />
+    <img src="fmap.svg" id="fmap" />
+  </div>
 
-  <img src="israelBandera.svg" id="flag" style="width: 400px; height: 400px; margin: 0px; display: float;"/>
-  <img src="fmap.svg" id="fmap" />
   <script type="text/javascript">
+  $("#fmap").hide();
   $("#map").animate({
-      marginLeft:"300px",
-      marginTop:"100px",
-      },2000);
+      marginLeft:"35%",
+    },2000,function(k){
+      $("#map").hide();
+    });
+  $("#flag").animate({
+      marginRight:"35%",
+    },2000,function(k){
+      $("#flag").hide();
+
+    $("#fmap").delay(2000).show();
+    });
   </script>
 
 </body>
