@@ -16,23 +16,23 @@ if files.empty?
 end
 
 json = File.open('bigjson.json', 'w+')
-vagina = {}
+result_hash = {}
 files.each do |f|
   File.open(f, 'r') do |doc|
     name = File.basename(doc)
-    vagina[name] = {}
-    verga = 0
+    result_hash[name] = {}
+    cont = 0
     data = File.open(doc) { |fi| Nokogiri::XML(fi) }
-    data.search('path').each do |sharmuta|
-      vagina[name][verga.to_s] = {}
-      title = sharmuta['title']
-      path = sharmuta['d']
-      vagina[name][verga.to_s]['name'] = title
-      vagina[name][verga.to_s]['path'] = path
-      verga += 1
+    data.search('path').each do |elem|
+      result_hash[name][cont.to_s] = {}
+      title = elem['title']
+      path = elem['d']
+      result_hash[name][cont.to_s]['name'] = title
+      result_hash[name][cont.to_s]['path'] = path
+      cont += 1
     end
   end
 end
 
-json << vagina.to_json
+json << result_hash.to_json
 json.close
