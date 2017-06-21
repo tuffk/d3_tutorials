@@ -247,4 +247,3 @@
  ["Turkey", "TR"],
  ["Israel", "IL"],
  ["Argentina", "AR"]]
-[2] pry(main)>
