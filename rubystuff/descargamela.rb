@@ -1,10 +1,15 @@
 require 'open-uri'
 require 'nokogiri'
 require 'json'
+require 'csv'
 require 'pry'
 require 'pry-nav'
 files = Dir['*.svg']
-countries = %w[israel mexico bibiri canada]
+# countries = %w[israel mexico bibiri canada]
+countries = []
+CSV.foreach('countrie.csv') do |r|
+  countries << r[0]
+end
 num = 0
 if files.empty?
   countries.each do |c|
@@ -39,5 +44,5 @@ files.each do |f|
   end
 end
 
-json << result_hash.to_json
+json << JSON.pretty_generate(result_hash)
 json.close
