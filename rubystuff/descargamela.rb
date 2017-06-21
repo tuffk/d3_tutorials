@@ -12,13 +12,14 @@ def camel_case(str)
 end
 countries = []
 flags = []
-@h = []
+@h = {}
 CSV.foreach('countrie.csv') do |r|
   parsed = camel_case(r[0])
   countries << parsed
   fl = camel_case(r[1])
   flags << fl
-  @h << { c: parsed, f: fl }
+  # @h << { c: parsed, f: fl }
+  @h[parsed] = fl
 end
 
 num = 0
@@ -26,7 +27,7 @@ if files.empty?
   countries.each do |c|
     begin
         download = open("https://www.amcharts.com/lib/3/maps/svg/#{c}High.svg")
-        IO.copy_stream(download, "#{c}.country.svg")
+        IO.copy_stream(download, "#{@h[c]}.country.svg")
         num += 1
       rescue
         next
