@@ -6,25 +6,47 @@ require 'pry'
 require 'pry-nav'
 files = Dir['*.svg']
 # countries = %w[israel mexico bibiri canada]
-countries = []
-CSV.foreach('countrie.csv') do |r|
-  countries << r[0]
+def camel_case(str)
+  words = str.downcase.split
+  words.shift + words.map(&:capitalize).join
 end
+countries = []
+flags = []
+@h = []
+CSV.foreach('countrie.csv') do |r|
+  parsed = camel_case(r[0])
+  countries << parsed
+  fl = camel_case(r[1])
+  flags << fl
+  @h << { c: parsed, f: fl }
+end
+
 num = 0
 if files.empty?
   countries.each do |c|
     begin
         download = open("https://www.amcharts.com/lib/3/maps/svg/#{c}High.svg")
-        IO.copy_stream(download, "#{c}.svg")
+        IO.copy_stream(download, "#{c}.country.svg")
         num += 1
       rescue
         next
       end
   end
+
+  flags.each do |f|
+    begin
+        download = open("https://raw.githubusercontent.com/lipis/flag-icon-css/master/flags/1x1/#{f}.svg")
+        IO.copy_stream(download, "#{f}.flag.svg")
+        num += 1
+      rescue
+        next
+      end
+  end
+
   puts "#{num} files downloaded"
-  files = Dir['*.svg']
 end
 
+files = Dir['*.country.svg']
 json = File.open('bigjson.json', 'w+')
 result_hash = {}
 files.each do |f|
