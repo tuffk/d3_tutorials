@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+
+<h4>Via svg, pattern, and <a href="http://jsfiddle.net/jwrmwxzt/7/">path</a></h4>
+
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <pattern id="Triangle" width="10" height="10" patternUnits="userSpaceOnUse">
+            <path fill="black" d="M5,0 10,10 0,10 Z" />
+        </pattern>
+    </defs>
+    <circle cx="60" cy="60" r="50" fill="url(#Triangle)" />
+</svg>
+
+<h4>Via svg, pattern, and rectangles</h4>
+
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <pattern id="hash4_4" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <rect width="4" height="8" transform="translate(0,0)" fill="orange"></rect>
+        </pattern>
+    </defs>
+    <circle cx="60" cy="60" r="50" fill="url(#hash4_4)" />
+</svg>
+
+<h4>Via svg, pattern, and d3</h4>
+
+ </body>
+<script>
+// SVG injection:
+var svg = d3.select("body").append("svg").attr("id", "d3svg")
+    .attr("width", 120)
+    .attr("height", 120);
+//Pattern injection
+var pattern = svg.append("defs")
+	.append("pattern")
+		.attr({ id:"hash4_4", width:"8", height:"8", patternUnits:"userSpaceOnUse", patternTransform:"rotate(60)"})
+	.append("rect")
+		.attr({ width:"4", height:"8", transform:"translate(0,0)", fill:"#88AAEE" });
+
+//Shape design
+svg.append("g").attr("id","shape")
+    .append("circle")
+.attr({cx:"60",cy:"60",r:"50", fill:"url(#hash4_4)" })
+</script>
+</html>
